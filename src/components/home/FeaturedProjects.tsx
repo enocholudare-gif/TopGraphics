@@ -47,7 +47,7 @@ export function FeaturedProjects({ projects }: { projects: Project[] }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
               key={project.id}
               className="group flex flex-col gap-5"
