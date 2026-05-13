@@ -15,8 +15,16 @@ export default async function Home() {
     orderBy: { createdAt: "desc" },
   });
 
-  // Serialize the data for Client Components
-  const projects = JSON.parse(JSON.stringify(rawProjects));
+  // Strictly serialize the data to plain objects for Client Components
+  const projects = rawProjects.map(project => ({
+    id: project.id,
+    title: project.title,
+    slug: project.slug,
+    coverImage: project.coverImage,
+    category: {
+      name: project.category.name
+    }
+  }));
 
   return (
     <div className="flex flex-col w-full">

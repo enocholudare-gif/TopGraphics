@@ -16,7 +16,15 @@ export default async function ProjectsPage() {
     orderBy: { createdAt: "desc" },
   });
 
-  const projects = JSON.parse(JSON.stringify(rawProjects));
+  const projects = rawProjects.map(project => ({
+    id: project.id,
+    title: project.title,
+    slug: project.slug,
+    coverImage: project.coverImage,
+    category: {
+      name: project.category.name
+    }
+  }));
 
   return (
     <div className="container px-4 md:px-6 py-24 mx-auto min-h-screen">

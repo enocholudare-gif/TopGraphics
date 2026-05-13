@@ -29,7 +29,23 @@ export default async function ProjectDetailPage({ params }: { params: { slug: st
     },
   });
 
-  const project = JSON.parse(JSON.stringify(rawProject));
+  const project = rawProject ? {
+    id: rawProject.id,
+    title: rawProject.title,
+    description: rawProject.description,
+    client: rawProject.client,
+    coverImage: rawProject.coverImage,
+    createdAt: rawProject.createdAt.toISOString(),
+    published: rawProject.published,
+    category: {
+      name: rawProject.category.name
+    },
+    images: rawProject.images.map(img => ({
+      id: img.id,
+      url: img.url,
+      altText: img.altText
+    }))
+  } : null;
 
   if (!project || (!project.published)) {
     notFound();
