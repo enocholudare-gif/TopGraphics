@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
@@ -26,48 +25,31 @@ export function FeaturedProjects({ projects }: { projects: Project[] }) {
       <div className="container relative z-10 px-4 md:px-6 mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
           <div className="max-w-2xl">
-            <motion.h2 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+            <h2 
               className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70"
             >
               Selected Works
-            </motion.h2>
-            <motion.p 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+            </h2>
+            <p 
               className="text-muted-foreground text-lg md:text-xl"
             >
               A glimpse into our latest and greatest projects across various industries.
-            </motion.p>
+            </p>
           </div>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <div>
             <Link
               href="/projects"
               className="hidden md:inline-flex items-center text-sm font-semibold hover:text-primary transition-colors group"
             >
               View all projects <ArrowRight className="ml-1 h-4 w-4 transform transition-transform group-hover:translate-x-1" />
             </Link>
-          </motion.div>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
           {projects.map((project, index) => (
-            <motion.div
+            <div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: index * 0.15 }}
               className="group flex flex-col gap-5"
             >
               <Link href={`/projects/${project.slug}`} className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl block bg-muted shadow-2xl">
@@ -98,7 +80,7 @@ export function FeaturedProjects({ projects }: { projects: Project[] }) {
                   </Link>
                 </h3>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
         

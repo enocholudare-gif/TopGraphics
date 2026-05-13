@@ -1,7 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
-
 export function WhatsAppButton() {
   // Using a placeholder number. The user can update this later.
   const phoneNumber = "+2347058799440"; 
@@ -9,15 +7,7 @@ export function WhatsAppButton() {
   const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${message}`;
 
   return (
-    <motion.div
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ 
-        type: "spring", 
-        stiffness: 260, 
-        damping: 20, 
-        delay: 1 
-      }}
+    <div
       className="fixed bottom-6 right-6 z-[90] md:bottom-8 md:right-8"
     >
       <a
@@ -51,6 +41,6 @@ export function WhatsAppButton() {
           Chat with us!
         </span>
       </a>
-    </motion.div>
+    </div>
   );
 }

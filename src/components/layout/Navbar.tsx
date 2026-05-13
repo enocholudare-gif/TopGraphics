@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
@@ -53,9 +52,7 @@ export function Navbar() {
 
       {/* Mobile Nav Menu */}
       {isOpen && (
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
+        <div 
           className="md:hidden container py-4 border-b border-border/40 bg-background"
         >
           <nav className="flex flex-col space-y-4">
@@ -73,7 +70,7 @@ export function Navbar() {
               </Link>
             ))}
           </nav>
-        </motion.div>
+        </div>
       )}
     </header>
   );

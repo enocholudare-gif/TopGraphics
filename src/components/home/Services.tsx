@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { PenTool, Layout, MonitorSmartphone, Palette } from "lucide-react";
 
 const services = [
@@ -39,12 +38,8 @@ export function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-background border border-border/50 rounded-xl p-8 hover:border-primary/50 transition-colors"
             >
               <div className="h-12 w-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-6">
@@ -54,7 +49,7 @@ export function Services() {
               <p className="text-muted-foreground leading-relaxed">
                 {service.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
