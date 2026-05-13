@@ -21,13 +21,15 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
-  const project = await prisma.project.findUnique({
+  const rawProject = await prisma.project.findUnique({
     where: { slug: params.slug },
     include: {
       category: true,
       images: true,
     },
   });
+
+  const project = JSON.parse(JSON.stringify(rawProject));
 
   if (!project || (!project.published)) {
     notFound();

@@ -10,11 +10,13 @@ export const metadata: Metadata = {
 };
 
 export default async function ProjectsPage() {
-  const projects = await prisma.project.findMany({
+  const rawProjects = await prisma.project.findMany({
     where: { published: true },
     include: { category: true },
     orderBy: { createdAt: "desc" },
   });
+
+  const projects = JSON.parse(JSON.stringify(rawProjects));
 
   return (
     <div className="container px-4 md:px-6 py-24 mx-auto min-h-screen">
