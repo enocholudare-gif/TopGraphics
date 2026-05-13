@@ -5,7 +5,7 @@ import { ContactCTA } from "@/components/home/ContactCTA";
 import { WhatsAppButton } from "@/components/home/WhatsAppButton";
 import prisma from "@/lib/prisma";
 
-export const revalidate = 60; // Revalidate every minute
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const projects = await prisma.project.findMany({

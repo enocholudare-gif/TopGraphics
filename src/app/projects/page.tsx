@@ -2,7 +2,7 @@ import prisma from "@/lib/prisma";
 import { ProjectGrid } from "@/components/projects/ProjectGrid";
 import { Metadata } from "next";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Projects | TOP Graphics",
