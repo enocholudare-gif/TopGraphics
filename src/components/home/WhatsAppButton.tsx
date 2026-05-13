@@ -1,7 +1,4 @@
-"use client";
-
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
 
 export function WhatsAppButton() {
   // Using a placeholder number. The user can update this later.
