@@ -11,7 +11,7 @@ type Project = {
   title: string;
   slug: string;
   coverImage: string | null;
-  category: { id: string; name: string };
+  category: { name: string };
 };
 
 export function ProjectGrid({ projects }: { projects: Project[] }) {
