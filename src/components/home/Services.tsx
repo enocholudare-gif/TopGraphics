@@ -1,6 +1,5 @@
 "use client";
 
-import { PenTool, Layout, MonitorSmartphone, Palette } from "lucide-react";
 
 const services = [
   {
